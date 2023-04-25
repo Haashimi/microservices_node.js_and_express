@@ -95,7 +95,7 @@ VALUES (1, 1);
 INSERT INTO NoteCategory (note_id, category_id)
 VALUES (1, 1);
 -- Fetch the row from User table based on Id and Password.
-
+SELECT user_id , user_password   FROM User
 -- Fetch all the rows from Note table based on the field note_creation_date.
 
 -- Fetch all the Categories created after the particular Date.
