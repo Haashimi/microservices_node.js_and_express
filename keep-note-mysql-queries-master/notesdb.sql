@@ -105,7 +105,7 @@ SELECT note_id FROM UserNote WHERE user_id = 1;
 -- Write Update query to modify particular Note for the given note id.
 UPDATE Note SET note_title = 'New Title', note_content = 'New Content' WHERE note_id = 1;
 -- Fetch all the Notes from the Note table by a particular User.
-
+SELECT n.* FROM Note n JOIN UserNote un ON n.note_id = un.note_id WHERE un.user_id = 1;
 -- Fetch all the Notes from the Note table for a particular Category.
 
 -- Fetch all the reminder details for a given note id.
