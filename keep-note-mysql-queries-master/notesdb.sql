@@ -107,7 +107,7 @@ UPDATE Note SET note_title = 'New Title', note_content = 'New Content' WHERE not
 -- Fetch all the Notes from the Note table by a particular User.
 SELECT n.* FROM Note n JOIN UserNote un ON n.note_id = un.note_id WHERE un.user_id = 1;
 -- Fetch all the Notes from the Note table for a particular Category.
-
+SELECT n.* FROM Note n JOIN NoteCategory nc ON n.note_id = nc.note_id WHERE nc.category_id = 1;
 -- Fetch all the reminder details for a given note id.
 
 -- Fetch the reminder details for a given reminder id.
