@@ -113,7 +113,8 @@ SELECT r.* FROM Reminder r JOIN NoteReminder nr ON r.reminder_id = nr.reminder_i
 -- Fetch the reminder details for a given reminder id.
 SELECT * FROM Reminder WHERE reminder_id = 1;
 -- Write a query to create a new Note from particular User (Use Note and UserNote tables - insert statement).
-
+INSERT INTO Note (note_title, note_content, note_status, note_creation_date) VALUES ('New Note Title', 'New Note Content', 'active', NOW());
+INSERT INTO UserNote (user_id, note_id) VALUES (1, 1);
 -- Write a query to create a new Note from particular User to particular Category(Use Note and NoteCategory tables - insert statement)
 
 -- Write a query to set a reminder for a particular note (Use Reminder and NoteReminder tables - insert statement)
