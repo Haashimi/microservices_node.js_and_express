@@ -74,7 +74,26 @@ CREATE TABLE UserNote (
     FOREIGN KEY (note_id) REFERENCES Note(note_id)
 );
 -- Insert the rows into the created tables (Note, Category, Reminder, User, UserNote, NoteReminder and NoteCategory)
+INSERT INTO User (user_name, user_added_date, user_password, user_mobile)
+VALUES ('Mohamed', '2022-04-01', 'password123', '252xxxxxxxx');
 
+INSERT INTO Note (note_title, note_content, note_status, note_creation_date)
+VALUES ('My first note', 'This is the content of my first note.', 'active', '2022-04-01 12:00:00');
+
+INSERT INTO Category (category_name, category_descr, category_creation_date, category_creator)
+VALUES ('Work', 'Notes related to work', '2022-04-01 12:00:00', 'Mohamed');
+
+INSERT INTO Reminder (reminder_name, reminder_descr, reminder_type, reminder_creation_date, reminder_creator)
+VALUES ('Meeting development team', 'Discuss new project details', 'email', '2022-04-01 12:00:00', 'Mohamed');
+
+INSERT INTO UserNote (user_id, note_id)
+VALUES (1, 1);
+
+INSERT INTO NoteReminder (note_id, reminder_id)
+VALUES (1, 1);
+
+INSERT INTO NoteCategory (note_id, category_id)
+VALUES (1, 1);
 -- Fetch the row from User table based on Id and Password.
 
 -- Fetch all the rows from Note table based on the field note_creation_date.
