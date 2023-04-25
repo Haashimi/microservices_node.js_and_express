@@ -97,7 +97,7 @@ VALUES (1, 1);
 -- Fetch the row from User table based on Id and Password.
 SELECT user_id , user_password   FROM User
 -- Fetch all the rows from Note table based on the field note_creation_date.
-
+SELECT * FROM Note WHERE note_creation_date = '2022-04-25';
 -- Fetch all the Categories created after the particular Date.
 
 -- Fetch all the Note ID from UserNote table for a given User.
