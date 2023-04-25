@@ -1,23 +1,78 @@
 -- create a schema called `notesdb`
+CREATE SCHEMA notesdb;
 
 -- Create the tables for Note, Category, Reminder, User, UserNote, NoteReminder and NoteCategory
 
 -- Note table fields: note_id, note_title, note_content, note_status, note_creation_date
-  
+  CREATE TABLE Note (
+    note_id INT NOT NULL AUTO_INCREMENT,
+    note_title VARCHAR(255) NOT NULL,
+    note_content TEXT NOT NULL,
+    note_status ENUM('active', 'archived') NOT NULL,
+    note_creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (note_id)
+);
 -- User table fields: user_id, user_name, user_added_date, user_password, user_mobile
-
+CREATE TABLE User (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    user_name VARCHAR(255) NOT NULL,
+    user_added_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    user_password VARCHAR(255) NOT NULL,
+    user_mobile VARCHAR(20) NOT NULL,
+    PRIMARY KEY (user_id)
+);
 -- alter table User modify column user_added_date date
+ALTER TABLE User MODIFY COLUMN user_added_date DATE;
 
 -- Category table fields : category_id, category_name, category_descr, category_creation_date, category_creator
-
+CREATE TABLE Category (
+    category_id INT NOT NULL AUTO_INCREMENT,
+    category_name VARCHAR(255) NOT NULL,
+    category_descr TEXT NOT NULL,
+    category_creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    category_creator INT NOT NULL,
+    PRIMARY KEY (category_id),
+    FOREIGN KEY (category_creator) REFERENCES User(user_id)
+);
 -- Reminder table fields : reminder_id, reminder_name, reminder_descr, reminder_type, reminder_creation_date, reminder_creator
-
+CREATE TABLE Reminder (
+    reminder_id INT NOT NULL AUTO_INCREMENT,
+    reminder_name VARCHAR(255) NOT NULL,
+    reminder_descr TEXT NOT NULL,
+    reminder_type ENUM('email', 'notification') NOT NULL,
+    reminder_creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    reminder_creator INT NOT NULL,
+    PRIMARY KEY (reminder_id),
+    FOREIGN KEY (reminder_creator) REFERENCES User(user_id)
+);
 -- NoteCategory table fields : notecategory_id, note_id, category_id
-
+CREATE TABLE NoteCategory (
+    notecategory_id INT NOT NULL AUTO_INCREMENT,
+    note_id INT NOT NULL,
+    category_id INT NOT NULL,
+    PRIMARY KEY (notecategory_id),
+    FOREIGN KEY (note_id) REFERENCES Note(note_id),
+    FOREIGN KEY (category_id) REFERENCES Category(category_id)
+);
 -- NoteReminder table fields : notereminder_id, note_id, reminder_id
-
+CREATE TABLE NoteReminder (
+    notereminder_id INT NOT NULL AUTO_INCREMENT,
+    note_id INT NOT NULL,
+    reminder_id INT NOT NULL,
+    PRIMARY KEY (notereminder_id),
+    FOREIGN KEY (note_id) REFERENCES Note(note_id),
+    FOREIGN KEY (reminder_id) REFERENCES Reminder(reminder_id)
+);
 -- Usernote table fields : usernote_id, user_id, note_id
 
+CREATE TABLE UserNote (
+    usernote_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    note_id INT NOT NULL,
+    PRIMARY KEY (usernote_id),
+    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (note_id) REFERENCES Note(note_id)
+);
 -- Insert the rows into the created tables (Note, Category, Reminder, User, UserNote, NoteReminder and NoteCategory)
 
 -- Fetch the row from User table based on Id and Password.
