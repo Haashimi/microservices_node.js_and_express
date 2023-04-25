@@ -116,7 +116,10 @@ SELECT * FROM Reminder WHERE reminder_id = 1;
 INSERT INTO Note (note_title, note_content, note_status, note_creation_date) VALUES ('New Note Title', 'New Note Content', 'active', NOW());
 INSERT INTO UserNote (user_id, note_id) VALUES (1, 1);
 -- Write a query to create a new Note from particular User to particular Category(Use Note and NoteCategory tables - insert statement)
+INSERT INTO Note (note_title, note_content, note_status, note_creation_date)
+VALUES ('New Note Title', 'New Note Content', 'active', NOW());
 
+INSERT INTO NoteCategory (note_id, category_id) VALUES (1, 1);
 -- Write a query to set a reminder for a particular note (Use Reminder and NoteReminder tables - insert statement)
 
 -- Write a query to delete particular Note added by a User(Note and UserNote tables - delete statement)
