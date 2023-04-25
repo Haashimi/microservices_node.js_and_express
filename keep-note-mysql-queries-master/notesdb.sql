@@ -123,7 +123,11 @@ VALUES ('New Note Title', 'New Note Content', 'active', NOW());
 
 INSERT INTO NoteCategory (note_id, category_id) VALUES (1, 1);
 -- Write a query to set a reminder for a particular note (Use Reminder and NoteReminder tables - insert statement)
+INSERT INTO Reminder (reminder_name, reminder_descr, reminder_type, reminder_creation_date, reminder_creator)
+VALUES ('New Reminder Name', 'New Reminder Description', 'email', NOW(), 'Reminder Creator');
 
+INSERT INTO NoteReminder (note_id, reminder_id)
+VALUES (1, 1);
 -- Write a query to delete particular Note added by a User(Note and UserNote tables - delete statement)
 
 -- Write a query to delete particular Note from particular Category(Note and NoteCategory tables - delete statement)
