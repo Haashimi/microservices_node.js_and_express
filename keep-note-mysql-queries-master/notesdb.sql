@@ -109,9 +109,9 @@ SELECT n.* FROM Note n JOIN UserNote un ON n.note_id = un.note_id WHERE un.user_
 -- Fetch all the Notes from the Note table for a particular Category.
 SELECT n.* FROM Note n JOIN NoteCategory nc ON n.note_id = nc.note_id WHERE nc.category_id = 1;
 -- Fetch all the reminder details for a given note id.
-
+SELECT r.* FROM Reminder r JOIN NoteReminder nr ON r.reminder_id = nr.reminder_id WHERE nr.note_id = 1;
 -- Fetch the reminder details for a given reminder id.
-
+SELECT * FROM Reminder WHERE reminder_id = 1;
 -- Write a query to create a new Note from particular User (Use Note and UserNote tables - insert statement).
 
 -- Write a query to create a new Note from particular User to particular Category(Use Note and NoteCategory tables - insert statement)
