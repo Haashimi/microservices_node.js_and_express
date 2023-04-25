@@ -129,6 +129,8 @@ VALUES ('New Reminder Name', 'New Reminder Description', 'email', NOW(), 'Remind
 INSERT INTO NoteReminder (note_id, reminder_id)
 VALUES (1, 1);
 -- Write a query to delete particular Note added by a User(Note and UserNote tables - delete statement)
-
+DELETE Note, UserNote FROM Note
+JOIN UserNote ON Note.note_id = UserNote.note_id
+WHERE Note.note_id = <note_id> AND UserNote.user_id = <user_id>;
 -- Write a query to delete particular Note from particular Category(Note and NoteCategory tables - delete statement)
 
