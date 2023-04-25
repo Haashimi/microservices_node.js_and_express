@@ -134,3 +134,5 @@ JOIN UserNote ON Note.note_id = UserNote.note_id
 WHERE Note.note_id = <note_id> AND UserNote.user_id = <user_id>;
 -- Write a query to delete particular Note from particular Category(Note and NoteCategory tables - delete statement)
 
+DELETE Note, NoteCategory FROM Note JOIN NoteCategory ON Note.note_id = NoteCategory.note_id
+WHERE Note.note_id = <note_id> AND NoteCategory.category_id = <category_id>;
