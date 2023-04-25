@@ -99,11 +99,11 @@ SELECT * FROM User WHERE user_id = 1 AND user_password = 'password123';
 -- Fetch all the rows from Note table based on the field note_creation_date.
 SELECT * FROM Note WHERE note_creation_date = '2022-04-25';
 -- Fetch all the Categories created after the particular Date.
-
+SELECT * FROM Category WHERE category_creation_date > '2022-04-10';
 -- Fetch all the Note ID from UserNote table for a given User.
-
+SELECT note_id FROM UserNote WHERE user_id = 1;
 -- Write Update query to modify particular Note for the given note id.
-
+UPDATE Note SET note_title = 'New Title', note_content = 'New Content' WHERE note_id = 1;
 -- Fetch all the Notes from the Note table by a particular User.
 
 -- Fetch all the Notes from the Note table for a particular Category.
